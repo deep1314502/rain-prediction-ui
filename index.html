@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rain Prediction System</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e8f0ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 25px;
+      width: 350px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #2980b9;
+    }
+
+    .output {
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2 id="title">Rain Prediction</h2>
+
+  <label id="humidityLabel">Humidity (%)</label>
+  <input type="number" placeholder="Enter humidity">
+
+  <label id="pressureLabel">Air Pressure (hPa)</label>
+  <input type="number" placeholder="Enter air pressure">
+
+  <label id="precipLabel">Precipitation (mm)</label>
+  <input type="number" placeholder="Enter precipitation">
+
+  <label id="dateLabel">Date</label>
+  <input type="date">
+
+  <label id="timeLabel">Time</label>
+  <input type="time">
+
+  <label>Language</label>
+  <select onchange="changeLanguage(this.value)">
+    <option value="en">English</option>
+    <option value="hi">Hindi</option>
+  </select>
+
+  <button id="predictBtn" onclick="predictRain()">Predict Rain</button>
+
+  <div class="output" id="result"></div>
+</div>
+
+<script>
+  function predictRain() {
+    document.getElementById("result").innerText =
+      "Rain Prediction: High Chance of Rain 🌧️";
+  }
+
+  function changeLanguage(lang) {
+    if (lang === "hi") {
+      document.getElementById("title").innerText = "वर्षा पूर्वानुमान";
+      document.getElementById("humidityLabel").innerText = "नमी (%)";
+      document.getElementById("pressureLabel").innerText = "वायु दाब (hPa)";
+      document.getElementById("precipLabel").innerText = "वर्षा (मिमी)";
+      document.getElementById("dateLabel").innerText = "तारीख";
+      document.getElementById("timeLabel").innerText = "समय";
+      document.getElementById("predictBtn").innerText = "वर्षा की भविष्यवाणी करें";
+    } else {
+      document.getElementById("title").innerText = "Rain Prediction";
+      document.getElementById("humidityLabel").innerText = "Humidity (%)";
+      document.getElementById("pressureLabel").innerText = "Air Pressure (hPa)";
+      document.getElementById("precipLabel").innerText = "Precipitation (mm)";
+      document.getElementById("dateLabel").innerText = "Date";
+      document.getElementById("timeLabel").innerText = "Time";
+      document.getElementById("predictBtn").innerText = "Predict Rain";
+    }
+  }
+</script>
+
+</body>
+</html>
